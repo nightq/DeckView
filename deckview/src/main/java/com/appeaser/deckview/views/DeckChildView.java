@@ -3,9 +3,7 @@ package com.appeaser.deckview.views;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorUpdateListener;
@@ -384,7 +382,7 @@ public class DeckChildView<T> extends FrameLayout implements
      */
     public void setTaskProgress(float p) {
         mTaskProgress = p;
-        Log.e("ngihtq", "setTaskProgress p = " + p);
+//        Log.e("nightq", "setTaskProgress p = " + p);
     }
 
     /**
