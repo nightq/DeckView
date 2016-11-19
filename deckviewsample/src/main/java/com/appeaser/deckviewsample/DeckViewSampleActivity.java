@@ -94,17 +94,17 @@ public class DeckViewSampleActivity extends Activity {
             }
 
             @Override
-            public void unloadViewData(Datum item) {
+            public void unloadViewData(DeckChildView<Datum> weakView, Datum item) {
             }
 
             @Override
-            public void onViewDismissed(Datum item) {
+            public void onViewDismissed(DeckChildView<Datum> weakView, Datum item) {
                 mEntries.remove(item);
                 mDeckView.notifyDataSetChanged();
             }
 
             @Override
-            public void onItemClick(Datum item) {
+            public void onItemClick(DeckChildView<Datum> weakView, Datum item) {
                 Toast.makeText(DeckViewSampleActivity.this,
                         "Item with title: '" + item.headerTitle + "' clicked",
                         Toast.LENGTH_SHORT).show();

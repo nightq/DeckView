@@ -844,7 +844,7 @@ public class DeckView<T> extends FrameLayout implements /*TaskStack.TaskStackCal
     public void prepareViewToEnterPool(DeckChildView<T> tv) {
         T key = tv.getAttachedKey();
 
-        mCallback.unloadViewData(key);
+        mCallback.unloadViewData(tv, key);
         tv.onTaskUnbound();
         tv.onDataUnloaded();
 
@@ -918,7 +918,7 @@ public class DeckView<T> extends FrameLayout implements /*TaskStack.TaskStackCal
     @Override
     public void onDeckChildViewClicked(DeckChildView<T> dcv, T key) {
         // Cancel any doze triggers
-        mCallback.onItemClick(key);
+        mCallback.onItemClick(dcv, key);
     }
 
     @Override
@@ -949,11 +949,10 @@ public class DeckView<T> extends FrameLayout implements /*TaskStack.TaskStackCal
         // to work here because the task is no longer in the list
         if (removedView != null) {
             T key = removedView.getAttachedKey();
+            // Notify the callback that we've removed the task and it can clean up after it
+            mCallback.onViewDismissed(removedView, key);
             int removedPosition = mCallback.getData().indexOf(key);
             mViewPool.returnViewToPool(removedView);
-
-            // Notify the callback that we've removed the task and it can clean up after it
-            mCallback.onViewDismissed(key);
         }
 
         /*
@@ -1111,11 +1110,11 @@ public class DeckView<T> extends FrameLayout implements /*TaskStack.TaskStackCal
 
         public void loadViewData(WeakReference<DeckChildView<T>> dcv, T item);
 
-        public void unloadViewData(T item);
+        public void unloadViewData(DeckChildView<T> view, T item);
 
-        public void onViewDismissed(T item);
+        public void onViewDismissed(DeckChildView<T> view, T item);
 
-        public void onItemClick(T item);
+        public void onItemClick(DeckChildView<T> view, T item);
 
         public void onNoViewsToDeck();
     }
