@@ -9,7 +9,7 @@
     <item name="deck_width_padding_percentage" format="float" type="dimen">0.03333</item>
 
     <!-- The overscroll percentage allowed on the deck. -->
-    <item name="deck_overscroll_percentage" format="float" type="dimen">0.0875</item>
+    <item name="deck_overscroll_percentage" format="float" type="dimen">0.5</item>
 
     <!-- The top offset for the deck. -->
     <dimen name="deck_top_padding">16dp</dimen>

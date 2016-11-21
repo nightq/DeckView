@@ -8,7 +8,7 @@
     <integer name="filter_animate_new_views_duration">250</integer>
 
     <!-- The animation duration for scrolling the stack to a particular item. -->
-    <integer name="animate_deck_scroll_duration">225</integer>
+    <integer name="animate_deck_scroll_duration">350</integer>
 
     <!-- The minimum alpha for the dim applied to cards that go deeper into the stack. -->
     <integer name="max_deck_view_dim">96</integer>
